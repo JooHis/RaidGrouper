@@ -70,20 +70,24 @@ end
 	-- UI ENDS HERE --
 
 function FixGroup()
-	for i = 1, 8 do
-		for j = 1, 5 do
-			playerId = UnitInRaid(players[i][j])
-			playerName = players[i][j]
-			if playerId == nil and playerName ~= nil then
-				print(playerName, "is not in the raid!")
-			elseif playerName == nil then
-			else 
-				local _, _, subgroup = GetRaidRosterInfo(playerId)
-				if subgroup ~= i then
-					SetRaidSubgroup(playerId, i)
+	if IsInRaid() and UnitIsGroupLeader("player") then
+		for i = 1, 8 do
+			for j = 1, 5 do
+				playerId = UnitInRaid(players[i][j])
+				playerName = players[i][j]
+				if playerId == nil and playerName ~= nil then
+					print(playerName, "is not in the raid! - RG")
+				elseif playerName == nil then
+				else 
+					local _, _, subgroup = GetRaidRosterInfo(playerId)
+					if subgroup ~= i then
+						SetRaidSubgroup(playerId, i)
+					end
 				end
 			end
 		end
+	else
+		print("You are not in a raid and/or not the raid leader! - RG")
 	end
 end
 
