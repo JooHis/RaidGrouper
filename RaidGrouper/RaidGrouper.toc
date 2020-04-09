@@ -1,0 +1,14 @@
+## Interface: 11303
+## Title: RaidGrouper
+## Notes: A tool to help arrange raidgroups
+## Author: Läppädin
+## Version: 0.1
+
+## OptDeps: Ace3
+## SavedVariables: players
+## DefaultState: enabled
+
+Libs\Ace3\LibStub\LibStub.lua
+Libs\Ace3\AceGUI-3.0\AceGUI-3.0.xml
+
+RaidGrouper.lua
