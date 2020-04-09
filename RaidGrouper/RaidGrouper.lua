@@ -70,7 +70,7 @@ end
 	-- UI ENDS HERE --
 
 function FixGroup()
-	if IsInRaid() and UnitIsGroupLeader("player") then
+	if IsInRaid() and (UnitIsGroupLeader("player") or UnitIsGroupAssistant("player")) then
 		for i = 1, 8 do
 			for j = 1, 5 do
 				playerId = UnitInRaid(players[i][j])
